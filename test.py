@@ -10,3 +10,9 @@ class CalculatorTransport:
         self.strategie = strategie
     def cost(self,comanda:Comanda) -> float:
         return round(self.strategie.calculeaza_cost(comanda),2)
+
+c = Comanda(greutate_kg=4, distanta_km=25,valoare_lei=300)
+calculam = CalculatorTransport(TransportStandard())
+print(calculam.cost(c))
+calculam.seteaza_strategia(TransportExpress())
+print(calculam.cost(c))
